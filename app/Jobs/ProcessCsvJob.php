@@ -57,7 +57,7 @@ class ProcessCsvJob implements ShouldQueue
             $details = [
                 'body' => $errorData
             ];
-            Mail::to('testnimisha@yopmail.com')->send(new SendMail($details));
+            Mail::to(config('app.error_mail'))->send(new SendMail($details));
         } else {
             foreach ($data as $row) {
                 $datas[] = array_combine($header, $row);
@@ -104,7 +104,7 @@ class ProcessCsvJob implements ShouldQueue
             $details = [
                 'body' => $error,
             ];
-            Mail::to('testnimisha@yopmail.com')->send(new SendMail($details));
+            Mail::to(config('app.error_mail'))->send(new SendMail($details));
             return false;
         } else {
             return true;

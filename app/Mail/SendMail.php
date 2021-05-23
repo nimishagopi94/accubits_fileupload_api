@@ -29,7 +29,7 @@ class SendMail extends Mailable
     public function build()
     {
 
-         return $this->subject('Mail from Real Programmer')
+         return $this->subject('Mail from Accubits')
                     ->view('sendmail',$this->details);
     }
 }

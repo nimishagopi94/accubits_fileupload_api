@@ -229,6 +229,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    'error_mail' => 'charush@accubits.com',
+
     'csv_file_validations' => [
         'head1' => 'in:Module_code',
         'head2' => 'in:Module_name',
@@ -258,5 +260,6 @@ return [
         '*.2.required' => 'Term Name Contains Symbols',
 
     ],
+
 
 ];
