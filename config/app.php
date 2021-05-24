@@ -232,19 +232,18 @@ return [
     'error_mail' => 'charush@accubits.com',
 
     'csv_file_validations' => [
-        'head1' => 'in:Module_code',
-        'head2' => 'in:Module_name',
-        'head3' => 'in:Module_term',
+        'head.1' => 'in:Module_code',
+        'head.2' => 'in:Module_name',
+        'head.3' => 'in:Module_term',
         'record' => 'max:1000',
-        'column_count' => 'in:3',
-        'csvfile' => 'mimes:csv',
+        'head' => 'array|size:3',
+        'csvfile' => 'mimes:csv,txt'
     ],
     'csv_file_validations_messages' => [
-        'head1.in' => 'First column name is not Module_code',
-        'head2.in' => 'First column name is not Module_name',
-        'head3.in' => 'First column name is not Module_term',
+        'head.1.in' => 'First column name is not Module_code',
+        'head.2.in' => 'First column name is not Module_name',
+        'head.3.in' => 'First column name is not Module_term',
         'record.max' => 'Number of Records are larger than 1000',
-        'column_count.in' => 'Column count is not 3 ',
     ],
     'csv_validations' => [
         '*.0' => 'integer',

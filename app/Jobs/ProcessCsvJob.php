@@ -87,10 +87,7 @@ class ProcessCsvJob implements ShouldQueue
     {
         $filevalidation = [
             'record' => count($data),
-            'column_count' => count($header),
-            'head1' => $header[0],
-            'head2' => $header[1],
-            'head3' => $header[2],
+            'head' => $header,
         ];
         $validator = Validator::make($filevalidation, config('app.csv_file_validations'), config('app.csv_file_validations_messages'));
         if ($validator->fails()) {
