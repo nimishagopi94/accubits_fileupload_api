@@ -12,6 +12,12 @@ class FileController extends Controller
     public function uploadFile(Request $request)
     {
         if ($request->has('csvfile')) {
+            $validator = Validator::make($request->all(),config('app.csv_file_validations'));
+            if ($validator->fails()) {
+                return response()->json([
+                    'message' => 'Invalid file format'
+                ]);
+            }
             $path = $request->file('csvfile')->store('csvfiles');
             ProcessCsvJob::dispatch($path);
             return response()->json([

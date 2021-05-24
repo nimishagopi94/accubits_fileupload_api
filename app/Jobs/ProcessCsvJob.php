@@ -43,7 +43,7 @@ class ProcessCsvJob implements ShouldQueue
         $data = array_map('str_getcsv', $file);
         $header = $data[0];
         unset($data[0]);
-        if (!$this->validateFile($data, $file, $header)) {
+        if (!$this->validateFile($data, $header)) {
             return;
         }
         $validator = Validator::make($data, config('app.csv_validations'), config('app.validation_messages'));
@@ -80,15 +80,13 @@ class ProcessCsvJob implements ShouldQueue
 
     /**
      * @param array $data
-     * @param $file
      * @param $header
      * @return int
      */
-    public function validateFile(array $data, $file, $header): bool
+    public function validateFile(array $data, $header): bool
     {
         $filevalidation = [
             'record' => count($data),
-            'csvFile' => $file,
             'column_count' => count($header),
             'head1' => $header[0],
             'head2' => $header[1],

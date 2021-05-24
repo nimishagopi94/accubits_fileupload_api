@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/fileRead', function () {
-    return view('fileUpload');
+    return view('fileupload');
 });

@@ -237,7 +237,7 @@ return [
         'head3' => 'in:Module_term',
         'record' => 'max:1000',
         'column_count' => 'in:3',
-        'csvFile' => 'mimes:csv',
+        'csvfile' => 'mimes:csv',
     ],
     'csv_file_validations_messages' => [
         'head1.in' => 'First column name is not Module_code',
@@ -256,8 +256,9 @@ return [
         '*.0.integer' => 'Module Code is Not an Integer',
         '*.1.required' => 'Module Name is Missing',
         '*.1.max' => 'Module Name is Greater than 10',
+        '*.1.regex' => 'Module Name Contains Symbols',
         '*.2.regex' => 'Term Name Contains Symbols',
-        '*.2.required' => 'Term Name Contains Symbols',
+        '*.2.required' => 'Term Name is Missing',
 
     ],
 
